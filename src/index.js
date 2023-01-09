@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Login from 'pages/Login';
+import AppRoute from 'routes';
 
 const theme = createTheme({
   palette: {
@@ -20,7 +21,7 @@ ReactDOM.render(
   <React.StrictMode>
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <Login />
+        <AppRoute />
       </ThemeProvider>
     </StylesProvider>
   </React.StrictMode>,

@@ -9,6 +9,7 @@ import {
   InputLabel,
   InputAdornment 
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -37,12 +38,14 @@ function Login() {
         }
       />
       </InputContainer>
-      <Button
-        variant="contained"
-        color="primary"
-      >
-        Avançar
-      </Button>
+      <Link className='button' to={'/feira'}>
+        <Button
+          variant="contained"
+          color="primary"
+        >
+          Avançar
+        </Button>
+      </Link>
     </Container>
   )
 };

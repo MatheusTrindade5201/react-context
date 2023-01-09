@@ -9,7 +9,10 @@ export const Container = styled.div`
     margin: 0 auto;
     width: 60%;
   }
+
+  
 `;
+
 
 export const Titulo = styled.h2`
   margin-bottom: 20px;
