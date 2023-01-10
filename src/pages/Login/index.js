@@ -10,8 +10,13 @@ import {
   InputAdornment 
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UsuarioContext } from 'common/context/Usuario';
 
-function Login({nome, setNome, saldo, setSaldo}) {
+function Login() {
+
+  const { nome, setNome, saldo, setSaldo } = useContext(UsuarioContext)
+
   return (
     <Container>
       <Titulo>
@@ -33,6 +38,8 @@ function Login({nome, setNome, saldo, setSaldo}) {
         </InputLabel>
         <Input
         type="number"
+        value={saldo}
+        onChange={event => setSaldo(event.target.value)}
         startAdornment={
           <InputAdornment position="start">
             R$
