@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-function Login() {
+function Login({nome, setNome, saldo, setSaldo}) {
   return (
     <Container>
       <Titulo>
@@ -23,6 +23,8 @@ function Login() {
         </InputLabel>
         <Input
           type="text"
+          value={nome}
+          onChange={event => setNome(event.target.value)}
         />
       </InputContainer>
       <InputContainer>
