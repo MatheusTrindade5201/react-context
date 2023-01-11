@@ -8,14 +8,14 @@ const AppRoute = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path={'/'}>
-                    <UsuarioProvider>
+                <UsuarioProvider>
+                    <Route exact path={'/'}>
                         <Login />
-                    </UsuarioProvider>
-                </Route>
-                <Route exact path={'/feira'}>
-                    <Feira />
-                </Route>
+                    </Route>
+                    <Route exact path={'/feira'}>
+                        <Feira />
+                    </Route>
+                </UsuarioProvider>
                 <Route exact path={'/carrinho'}>
                     <Carrinho />
                 </Route>
