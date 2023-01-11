@@ -32,11 +32,27 @@ export const useCarrinhoContext = () => {
           }
           return itemDoCarrinho
         }))     
-      }
+    }
+
+    const removerItem = (id) => {
+        const produto = carrinho.find(itemCarrinho => itemCarrinho.id === id);
+        const ultimoItem = produto?.unidade === 1;
+        if(ultimoItem){
+            setCarrinho(carrinho.filter(itemDoCarrinho => itemDoCarrinho.id !== id))
+            return
+        }
+        setCarrinho(carrinhoAntigo => carrinhoAntigo.map(itemDoCarrinho => {
+            if(itemDoCarrinho.id === id){
+                itemDoCarrinho.unidade -= 1
+            }
+            return itemDoCarrinho
+        }))
+    }   
 
     return{
         carrinho,
         setCarrinho,
-        adicionarItem
+        adicionarItem,
+        removerItem
     }
 }
