@@ -1,3 +1,4 @@
+import { CarrinhoProvider } from "common/context/Carrinho";
 import { UsuarioProvider } from "common/context/Usuario";
 import Carrinho from "pages/Carrinho";
 import Feira from "pages/Feira";
@@ -12,13 +13,15 @@ const AppRoute = () => {
                     <Route exact path={'/'}>
                         <Login />
                     </Route>
-                    <Route exact path={'/feira'}>
-                        <Feira />
+                    <Route path={'/feira'}>
+                        <CarrinhoProvider>
+                            <Feira />   
+                        </CarrinhoProvider>
                     </Route>
-                </UsuarioProvider>
-                <Route exact path={'/carrinho'}>
+                <Route path={'/carrinho'}>
                     <Carrinho />
                 </Route>
+                </UsuarioProvider>
             </Switch>
         </BrowserRouter>
     )
