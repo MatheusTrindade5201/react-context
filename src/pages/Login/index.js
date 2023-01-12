@@ -51,6 +51,7 @@ function Login() {
         <Button
           variant="contained"
           color="primary"
+          disabled={nome.length < 3 || saldo <= 0}
         >
           Avançar
         </Button>
