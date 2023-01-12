@@ -16,6 +16,16 @@ export const CarrinhoProvider = ({ children }) => {
 export const useCarrinhoContext = () => {
     const { carrinho, setCarrinho } = useContext(CarrinhoContext);
 
+    const mudarQuantidade = (id, quantidade) => {
+        setCarrinho(carrinhoAntigo => carrinhoAntigo.map(itemDoCarrinho => {
+            if(itemDoCarrinho.id === id){
+                itemDoCarrinho.unidade += quantidade
+            }
+            return itemDoCarrinho
+        }))
+        
+    }
+
     const adicionarItem = (novoProduto) => {
         const produto = carrinho.some(itemCarrinho => itemCarrinho.id === novoProduto.id);
     
@@ -26,12 +36,7 @@ export const useCarrinhoContext = () => {
             )
         }
         
-        setCarrinho(carrinhoAnterior => carrinhoAnterior.map(itemDoCarrinho => {
-          if(itemDoCarrinho.id === novoProduto.id){
-            itemDoCarrinho.unidade += 1
-          }
-          return itemDoCarrinho
-        }))     
+        mudarQuantidade(novoProduto.id, 1)    
     }
 
     const removerItem = (id) => {
@@ -41,12 +46,9 @@ export const useCarrinhoContext = () => {
             setCarrinho(carrinho.filter(itemDoCarrinho => itemDoCarrinho.id !== id))
             return
         }
-        setCarrinho(carrinhoAntigo => carrinhoAntigo.map(itemDoCarrinho => {
-            if(itemDoCarrinho.id === id){
-                itemDoCarrinho.unidade -= 1
-            }
-            return itemDoCarrinho
-        }))
+
+        mudarQuantidade(id, -1)
+        
     }   
 
     return{
