@@ -10,6 +10,12 @@ export const Container = styled.div`
     width: 60%;
   }
 
+  .button{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none
+  }
+
   
 `;
 
