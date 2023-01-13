@@ -4,13 +4,19 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import { Link } from 'react-router-dom';
+import { useCarrinhoContext } from 'common/context/Carrinho';
 
 export default function NavBar() {
+
+  const { carrinho } = useCarrinhoContext();
+
   return (
     <Nav>
       <Logo />
-      <Link to={'/carrinho'}>
-        <IconButton>
+      <Link
+       to={carrinho.length >= 1 ? '/carrinho' : '/feira'}
+       >
+        <IconButton disabled={carrinho.length < 1}>
           <Badge
             color="primary"
           >
