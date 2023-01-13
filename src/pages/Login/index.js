@@ -47,7 +47,7 @@ function Login() {
         }
       />
       </InputContainer>
-      <Link className='button' to={'/feira'}>
+      <Link className='button' to={nome.length < 3 || saldo <= 0 ? '' : '/feira'}>
         <Button
           variant="contained"
           color="primary"
