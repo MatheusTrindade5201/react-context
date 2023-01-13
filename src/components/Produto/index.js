@@ -33,7 +33,7 @@ function Produto({
           <IconButton
             color="secondary"
             onClick={() => removerItem(id)}
-            disabled={produto == undefined}
+            disabled={produto === undefined}
           >
             <RemoveIcon />
           </IconButton>
