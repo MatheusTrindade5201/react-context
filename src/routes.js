@@ -13,14 +13,14 @@ const AppRoute = () => {
                     <Route exact path={'/'}>
                         <Login />
                     </Route>
-                    <Route path={'/feira'}>
                         <CarrinhoProvider>
+                    <Route path={'/feira'}>
                             <Feira />   
-                        </CarrinhoProvider>
                     </Route>
                 <Route path={'/carrinho'}>
                     <Carrinho />
                 </Route>
+                        </CarrinhoProvider>
                 </UsuarioProvider>
             </Switch>
         </BrowserRouter>
