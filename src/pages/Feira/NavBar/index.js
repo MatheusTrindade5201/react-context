@@ -8,11 +8,12 @@ import { useCarrinhoContext } from 'common/context/Carrinho';
 
 export default function NavBar() {
 
-  const { carrinho } = useCarrinhoContext();
+  const { carrinho, quantidadeTotal } = useCarrinhoContext();
 
   return (
     <Nav>
       <Logo />
+        {quantidadeTotal}
       <Link
        to={carrinho.length >= 1 ? '/carrinho' : '/feira'}
        >
